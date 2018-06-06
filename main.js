@@ -21,9 +21,9 @@ let minimumNumberOfRepairers = 1;
 // Number of Wall Fixers
 let minimumNumberOfWallRepairers = 1;
 // Number of Long Distance Harvesters
-let minimumNumberOfLongDistanceHarvesters = 4;
+let minimumNumberOfLongDistanceHarvesters = 3;
 // Number of Grave Diggers
-let minimumNumberOfGraveDiggers = 0;
+let minimumNumberOfGraveDiggers = 1;
 
 // Number of Creeps
 let numberOfHarvesters = _.sum(Game.creeps, (c)=>c.memory.role == 'harvester');
@@ -37,16 +37,13 @@ let numberOfGraveDiggers = _.sum(Game.creeps, (c)=>c.memory.role == 'gravedigger
 // our spawn (main)
 let spawn = Game.spawns.First;
 let home = 'W21N54'
-let target = ['W21N53', 'W22N54'];
+let target = [{"name":'W21N53',"index":0}, {"name":'W22N54',"index":0}, {"name":'W22N54',"index":1}];
 let flip = 0;
-
-//TMP
-let counter =0;
 
 // main
 module.exports.loop = function () {
         // drop some numbers.
-        if (flip%10==0){
+        if (flip%40==0){
             console.log("Harvesters["+numberOfHarvesters
             +"]Upgraders["+numberOfUpgraders
             +"]Builders["+numberOfBuilders
@@ -56,7 +53,7 @@ module.exports.loop = function () {
             +"]GraveDigger["+numberOfGraveDiggers
             +"]");
             // skip 1 rotation
-            flip=(flip+1)%3;
+            flip++;
         }
     
     // clear memory
@@ -106,8 +103,11 @@ module.exports.loop = function () {
         }
     }else if(numberOfLongDistanceHarvesters < minimumNumberOfLongDistanceHarvesters){
         //console.log('Building a new long distance harvester');
-        name = spawn.createLongDistanceHarvester(energy, 5, home, target[counter%2], 0)
-        counter++;
+        
+        name = spawn.createLongDistanceHarvester(energy, 5, home, 
+        target[numberOfLongDistanceHarvesters%target.length].name, 
+        target[numberOfLongDistanceHarvesters%target.length].index)
+        
     }else if (numberOfUpgraders < minimumNumberOfUpgraders){
         //console.log('Building a new upgrader');
         name = spawn.createCustomCreep(energy, 'upgrader');

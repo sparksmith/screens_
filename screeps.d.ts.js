@@ -370,7 +370,7 @@ interface ConstructionSite extends RoomObject {
      */
     my: boolean;
     /**
-     * An object with the structureâs owner info
+     * An object with the structureÃ¢ÂÂs owner info
      */
     owner: Owner;
     /**
@@ -421,7 +421,7 @@ interface Storage extends StructureStorage {
 interface Creep extends RoomObject {
     readonly prototype: Creep;
     /**
-     * An array describing the creepâs body. Each element contains the following properties:
+     * An array describing the creepÃ¢ÂÂs body. Each element contains the following properties:
      * type: string
      * body part constant
      * hits: number
@@ -455,7 +455,7 @@ interface Creep extends RoomObject {
      */
     id: string;
     /**
-     * A shorthand to Memory.creeps[creep.name]. You can use it for quick access the creepâs specific memory data object.
+     * A shorthand to Memory.creeps[creep.name]. You can use it for quick access the creepÃ¢ÂÂs specific memory data object.
      */
     memory: any;
     /**
@@ -463,11 +463,11 @@ interface Creep extends RoomObject {
      */
     my: boolean;
     /**
-     * Creepâs name. You can choose the name while creating a new creep, and it cannot be changed later. This name is a hash key to access the creep via the Game.creeps object.
+     * CreepÃ¢ÂÂs name. You can choose the name while creating a new creep, and it cannot be changed later. This name is a hash key to access the creep via the Game.creeps object.
      */
     name: string;
     /**
-     * An object with the creepâs owner info
+     * An object with the creepÃ¢ÂÂs owner info
      */
     owner: Owner;
     /**
@@ -542,7 +542,7 @@ interface Creep extends RoomObject {
      */
     harvest(target: Source | Mineral): number;
     /**
-     * Heal self or another creep. It will restore the target creepâs damaged body parts function and increase the hits counter. Needs the HEAL body part. The target has to be at adjacent square to the creep.
+     * Heal self or another creep. It will restore the target creepÃ¢ÂÂs damaged body parts function and increase the hits counter. Needs the HEAL body part. The target has to be at adjacent square to the creep.
      * @param target The target creep object.
      */
     heal(target: Creep): number;
@@ -587,7 +587,7 @@ interface Creep extends RoomObject {
      */
     rangedAttack(target: Creep | Structure): number;
     /**
-     * Heal another creep at a distance. It will restore the target creepâs damaged body parts function and increase the hits counter. Needs the HEAL body part. The target has to be within 3 squares range of the creep.
+     * Heal another creep at a distance. It will restore the target creepÃ¢ÂÂs damaged body parts function and increase the hits counter. Needs the HEAL body part. The target has to be within 3 squares range of the creep.
      * @param target The target creep object.
      */
     rangedHeal(target: Creep): number;
@@ -661,7 +661,7 @@ interface Flag extends RoomObject {
      */
     memory: any;
     /**
-     * Flagâs name. You can choose the name while creating a new flag, and it cannot be changed later. This name is a hash key to access the spawn via the Game.flags object.
+     * FlagÃ¢ÂÂs name. You can choose the name while creating a new flag, and it cannot be changed later. This name is a hash key to access the spawn via the Game.flags object.
      */
     name: string;
     /**
@@ -802,7 +802,7 @@ interface CPU {
     getHeapStatistics(): HeapStatistics;
 }
 /**
- * An array describing the creepâs body. Each element contains the following properties:
+ * An array describing the creepÃ¢ÂÂs body. Each element contains the following properties:
  */
 interface BodyPartDefinition {
     /**
@@ -946,7 +946,7 @@ interface MoveToOpts extends FindPathOpts {
      */
     noPathFinding?: boolean;
     /**
-     * Draw a line along the creepâs path using RoomVisual.poly. You can provide either an empty object or custom style parameters.
+     * Draw a line along the creepÃ¢ÂÂs path using RoomVisual.poly. You can provide either an empty object or custom style parameters.
      */
     visualizePathStyle?: PolyStyle;
 }
@@ -1779,7 +1779,7 @@ interface Room {
      */
     energyCapacityAvailable: number;
     /**
-     * A shorthand to Memory.rooms[room.name]. You can use it for quick access the roomâs specific memory data object.
+     * A shorthand to Memory.rooms[room.name]. You can use it for quick access the roomÃ¢ÂÂs specific memory data object.
      */
     memory: any;
     /**
@@ -1993,15 +1993,15 @@ interface StructureSpawn extends OwnedStructure {
      */
     energyCapacity: number;
     /**
-     * A shorthand to Memory.spawns[spawn.name]. You can use it for quick access the spawnâs specific memory data object.
+     * A shorthand to Memory.spawns[spawn.name]. You can use it for quick access the spawnÃ¢ÂÂs specific memory data object.
      */
     memory: any;
     /**
-     * Spawnâs name. You choose the name upon creating a new spawn, and it cannot be changed later. This name is a hash key to access the spawn via the Game.spawns object.
+     * SpawnÃ¢ÂÂs name. You choose the name upon creating a new spawn, and it cannot be changed later. This name is a hash key to access the spawn via the Game.spawns object.
      */
     name: string;
     /**
-     * If the spawn is in process of spawning a new creep, this object will contain the new creepâs information, or null otherwise.
+     * If the spawn is in process of spawning a new creep, this object will contain the new creepÃ¢ÂÂs information, or null otherwise.
      * @param name The name of a new creep.
      * @param needTime Time needed in total to complete the spawning.
      * @param remainingTime Remaining time to go.
@@ -2014,7 +2014,7 @@ interface StructureSpawn extends OwnedStructure {
     /**
      * @deprecated
      * Check if a creep can be created.
-     * @param body An array describing the new creepâs body. Should contain 1 to 50 elements with one of these constants: WORK, MOVE, CARRY, ATTACK, RANGED_ATTACK, HEAL, TOUGH, CLAIM
+     * @param body An array describing the new creepÃ¢ÂÂs body. Should contain 1 to 50 elements with one of these constants: WORK, MOVE, CARRY, ATTACK, RANGED_ATTACK, HEAL, TOUGH, CLAIM
      * @param name The name of a new creep. It should be unique creep name, i.e. the Game.creeps object should not contain another creep with the same name (hash key). If not defined, a random name will be generated.
      */
     canCreateCreep(body: string[], name?: string): number;
@@ -2028,14 +2028,14 @@ interface StructureSpawn extends OwnedStructure {
      * ERR_NOT_ENOUGH_ENERGY	-6	The spawn and its extensions contain not enough energy to create a creep with the given body.
      * ERR_INVALID_ARGS	-10	Body is not properly described.
      * ERR_RCL_NOT_ENOUGH	-14	Your Room Controller level is not enough to use this spawn.
-     * @param body An array describing the new creepâs body. Should contain 1 to 50 elements with one of these constants: WORK, MOVE, CARRY, ATTACK, RANGED_ATTACK, HEAL, TOUGH, CLAIM
+     * @param body An array describing the new creepÃ¢ÂÂs body. Should contain 1 to 50 elements with one of these constants: WORK, MOVE, CARRY, ATTACK, RANGED_ATTACK, HEAL, TOUGH, CLAIM
      * @param name The name of a new creep. It should be unique creep name, i.e. the Game.creeps object should not contain another creep with the same name (hash key). If not defined, a random name will be generated.
      * @param memory The memory of a new creep. If provided, it will be immediately stored into Memory.creeps[name].
      */
     createCreep(body: string[], name?: string, memory?: any): number | string;
     /**
      * Start the creep spawning process. The required energy amount can be withdrawn from all spawns and extensions in the room.
-     * @param body An array describing the new creepâs body. Should contain 1 to 50 elements with one of these constants: WORK, MOVE, CARRY, ATTACK, RANGED_ATTACK, HEAL, TOUGH, CLAIM
+     * @param body An array describing the new creepÃ¢ÂÂs body. Should contain 1 to 50 elements with one of these constants: WORK, MOVE, CARRY, ATTACK, RANGED_ATTACK, HEAL, TOUGH, CLAIM
      * @param name The name of a new creep. It should be unique creep name, i.e. the Game.creeps object should not contain another creep with the same name (hash key). If not defined, a random name will be generated.
      * @param opts An object with additional options for the spawning process.
      * @returns One of the following codes:
@@ -2136,7 +2136,7 @@ interface OwnedStructure extends Structure {
      */
     my: boolean;
     /**
-     * An object with the structureâs owner info (if present) containing the following properties: username
+     * An object with the structureÃ¢ÂÂs owner info (if present) containing the following properties: username
      */
     owner: Owner;
     /**

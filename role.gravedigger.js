@@ -26,7 +26,6 @@ module.exports = {
         } else {
             let source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
             let toombstone = creep.pos.findClosestByPath(FIND_TOMBSTONES);
-            
             if(toombstone != null){
                 // take the energy from the toombstone
                 if(creep.withdraw(toombstone,RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){

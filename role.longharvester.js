@@ -17,6 +17,7 @@ module.exports = {
                         || s.structureType == STRUCTURE_STORAGE)
                         && s.energy < s.energyCapacity
                 });
+
                 // go transfer
                 if (strcture != undefined) {
                     if (creep.transfer(strcture, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
@@ -30,7 +31,7 @@ module.exports = {
             }
         } else {
             if(creep.room.name == creep.memory.target) {
-                let source = creep.room.find(FIND_SOURCES)[creep.memory.source];
+                let source = creep.room.find(FIND_SOURCES_ACTIVE)[creep.memory.source];
                 if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(source);
                 }
