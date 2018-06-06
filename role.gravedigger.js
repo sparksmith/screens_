@@ -1,3 +1,6 @@
+let roleBuilder  = require('role.builder');
+
+
 module.exports = {
     run: function (creep) {
         if (creep.memory.working == true && creep.carry.energy == 0) {
@@ -10,14 +13,15 @@ module.exports = {
             let strcture = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {
                 filter: (s) => (s.structureType == STRUCTURE_SPAWN
                     || s.structureType == STRUCTURE_EXTENSION
-                    || s.structureType == STRUCTURE_TOWER
-                    || s.structureType == STRUCTURE_STORAGE)
+                    || s.structureType == STRUCTURE_TOWER)
                     && s.energy < s.energyCapacity
             });
             if(strcture != undefined){
                 if (creep.transfer(strcture, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(strcture);
                 }
+            }else{
+                roleBuilder.run(creep)
             }
         } else {
             let source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);

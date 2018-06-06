@@ -21,9 +21,9 @@ let minimumNumberOfRepairers = 1;
 // Number of Wall Fixers
 let minimumNumberOfWallRepairers = 1;
 // Number of Long Distance Harvesters
-let minimumNumberOfLongDistanceHarvesters = 2;
+let minimumNumberOfLongDistanceHarvesters = 4;
 // Number of Grave Diggers
-let minimumNumberOfGraveDiggers = 1;
+let minimumNumberOfGraveDiggers = 0;
 
 // Number of Creeps
 let numberOfHarvesters = _.sum(Game.creeps, (c)=>c.memory.role == 'harvester');
@@ -46,7 +46,7 @@ let counter =0;
 // main
 module.exports.loop = function () {
         // drop some numbers.
-        if (flip%3==0){
+        if (flip%10==0){
             console.log("Harvesters["+numberOfHarvesters
             +"]Upgraders["+numberOfUpgraders
             +"]Builders["+numberOfBuilders
@@ -98,7 +98,7 @@ module.exports.loop = function () {
 
     // order spawner by priority
     if (numberOfHarvesters < minimumNumberOfHarvesters) {
-        console.log('Building a new harverster');
+        //console.log('Building a new harverster');
         name = spawn.createCustomCreep(energy, 'harvester')
         // if everything is dead :(
         if(name == ERR_NOT_ENOUGH_ENERGY && numberOfHarvesters ==0){

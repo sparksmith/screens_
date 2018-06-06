@@ -13,7 +13,7 @@ module.exports = function () {
         }
 
         // create creep with the created body and the given role
-        let result = this.spawnCreep(body, Math.floor(Date.now() / 1000), {memory: { role: roleName, working: false }});
+        let result = this.spawnCreep(body, roleName+'-'+Math.floor(Date.now() / 1000), {memory: { role: roleName, working: false }});
         return result;
     };
 
@@ -33,12 +33,11 @@ module.exports = function () {
             body.push(MOVE);
         }
 
-        return this.spawnCreep(body, 
-        Math.floor(Date.now() / 1000),
-            { role: 'longharvester',
+        return this.spawnCreep(body,'longharvester-'+Math.floor(Date.now() / 1000),
+            {memory: { role: 'longharvester',
             home: home,
             target:target,
             source: sourceIndex,
-            working: false });
+            working: false }});
     };
 };
