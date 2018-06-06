@@ -21,7 +21,14 @@ module.exports = {
             }
         } else {
             let source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
-            if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
+            let toombstone = creep.pos.findClosestByPath(FIND_TOMBSTONES);
+            
+            if(toombstone != null){
+                // take the energy from the toombstone
+                if(creep.withdraw(toombstone,RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                    creep.moveTo(toombstone);
+                }
+            }else if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(source);
             }
         }
